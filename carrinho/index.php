@@ -3,14 +3,31 @@
 //inicia sessão
 session_start();
 
-//verifica se algo está null
-if (!isset($_SESSION['carrinho'])) {
-    $_SESSION['carrinho'] = [];
+class Produto{
+    public $id;
+    public $nome;
+    public $valor;
+    public $desc;
+
+    public function __construct($nome,$valor,$desc){
+        $this->$nome = $nome;
+        $this->$valor = $valor;
+        $this->$desc = $desc;
+    }
 }
+
+// public - qualquer parte do código mexe no atributo
+// private - apenas o que está dentro do class
+
+//verifica se algo está null
+if (!isset($_SESSION['carrinho'])){
+    $_SESSION['carrinho'] = [];
 
 //adiciona um produto
 if (isset($_GET['produto'])){
-    $_SESSION['carrinho'][] = $_GET['produto'];
+    $produtosDados = new Produto($_GET['produto'],$_GET['valor'],$_GET['desc']);
+    $_SESSION['carrinho'][] = $produtosDados;
+}
 }
 
 if (isset($_GET['limpar'])) {
@@ -30,7 +47,7 @@ if (isset($_GET['limpar'])) {
 <body>
     <h1>Carrinho de Compras</h1>
 
-    <p><a href="?produto=Óleocapilar">Adicionar Óleo capilar</a></p>
+    <p><a href="?produto=oleo&valor=39.99&desc='O melhor óleo capilar que'">Adicionar oleo</a></p>
     <p><a href="?produto=Shampoo">Adicionar Shampoo</a></p>
     <p><a href="?produto=MyWay">Adicionar MyWay</a></p>
     <p><a href="?produto=Máscara de hidratação">Adicionar Máscara de hidratação</a></p>
