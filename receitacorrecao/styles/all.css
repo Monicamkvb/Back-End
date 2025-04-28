@@ -1,0 +1,24 @@
+:root{
+    --corPrimaria : #bc3908;
+    --corSecundaria : #f27059;
+    --corTerciaria : #f79d65;
+    --rosaClaro : #f7b267;
+}
+
+header{
+    background-color: var(--corPrimaria);
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: var(--rosaClaro)!important;
+}
+
+#bg_banner{
+    height: 300px!important;
+    background-image: url(https://i0.wp.com/canaldareceita.com.br/wp-content/uploads/2024/08/LASANHA-DE-FRANGO-COM-QUEIJO.png?fit=2000%2C1200&ssl=1);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
